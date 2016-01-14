@@ -1,18 +1,16 @@
 #include <AFMotor.h>
 #include <NewPing.h>
-
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
 #define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 int ledPin = 14;  //define the pin that the LED is on
-int motorSpeed = 20;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
-
 
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
 int drawingWidth = 80; // width of the drawing space in CM
+int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 /////// 1000 steps = 30cm wide diamond
 /////// 1cm = 33.3 steps
 /////// 
@@ -30,6 +28,19 @@ int lateralLineLimit; // this is the max length of the long lateral lines when g
 int lineGap; // max 'large gap' between dense lines
 int randoChoice;
 int lineGapChoice;
+int randoChoiceLimit;
+
+int lateralLineLargeLimit = 500;
+int lateralLineSmallLimit = 40;
+int percentChanceOfChoosingLargeLineLimit = 4;
+
+
+int lineGaplargeLimit = 100; 
+int lineGapSmallLimit = 3;
+int percentChangeOfChoosingGapLargeLimit = 10;
+
+
+
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
 

@@ -1,14 +1,14 @@
 void RightSideDownLineShapes(){
   randoChoice = int(random(100));  // this defines how long the long back and forth lines are
-  if (randoChoice<3){
-    lateralLineLimit = int(random(600));
+  if (randoChoice<percentChanceOfChoosingLargeLineLimit){
+    lateralLineLimit = int(random(lateralLineLargeLimit));
   }
   else{
-    lateralLineLimit = random(90);
+    lateralLineLimit = random(lateralLineSmallLimit);
   }
   lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
-  if (lineGapChoice<10){
-    lineGap = int(random(150));
+  if (lineGapChoice<percentChangeOfChoosingGapLargeLimit){
+    lineGap = int(random(lineGaplargeLimit));
   } 
   else {
     lineGap = 5;
