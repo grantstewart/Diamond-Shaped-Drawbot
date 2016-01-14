@@ -22,14 +22,14 @@ void RightSideDownLineShapes(){
     RM.step(zizzo, BACKWARD, INTERLEAVE); 
     R+=zizzo;
     testBoundaries();
-    LM.step(zizzo2,FORWARD,INTERLEAVE);
-    L+=zizzo2;
+    LM.step(zizzo2,BACKWARD,INTERLEAVE);
+    L-=zizzo2;
     testBoundaries();
     RM.step(zizzo,BACKWARD, INTERLEAVE);
     R+=zizzo;
     testBoundaries();
-    LM.step(zizzo2,BACKWARD,INTERLEAVE);
-    L-=zizzo2;
+    LM.step(zizzo2,FORWARD,INTERLEAVE);
+    L+=zizzo2;
     testBoundaries();
   }
 

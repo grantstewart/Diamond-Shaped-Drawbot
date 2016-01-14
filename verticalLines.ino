@@ -1,7 +1,7 @@
 void verticalLines(){
-  
-  
-   /*
+    /*
+    int choice = int(random(2));
+    if (choice ==1){
     testBoundaries();
     RM.step(zizzo, FORWARD, INTERLEAVE); 
     R-=zizzo;
@@ -16,5 +16,5 @@ void verticalLines(){
     L-=zizzo2;
     testBoundaries();
     
- */   
+   */
 }
