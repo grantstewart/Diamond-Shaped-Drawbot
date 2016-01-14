@@ -1,20 +1,14 @@
 void verticalLines(){
-    /*
-    int choice = int(random(2));
-    if (choice ==1){
-    testBoundaries();
-    RM.step(zizzo, FORWARD, INTERLEAVE); 
-    R-=zizzo;
-    testBoundaries();
-    LM.step(zizzo2,FORWARD,INTERLEAVE);
-    L+=zizzo2;
-    testBoundaries();
-    RM.step(zizzo,FORWARD, INTERLEAVE);
-    R-=zizzo;
-    testBoundaries();
-    LM.step(zizzo2,BACKWARD,INTERLEAVE);
-    L-=zizzo2;
-    testBoundaries();
-    
-   */
+  int verticalSize = int(random(verticalSizeLineLimit));
+  
+  for(int i=0;i<verticalSize; i++){
+      RM.step(1, BACKWARD, INTERLEAVE);
+      R+=1;
+      testBoundaries();
+      LM.step(1,FORWARD,INTERLEAVE);
+      L+=1;
+      testBoundaries();
+    }
 }
+
+
