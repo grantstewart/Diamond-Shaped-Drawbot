@@ -74,7 +74,7 @@ void loop() {
   Serial.println("cm");
   
   
-  ///////////////////////Do these things when sensor is active or not///////////////////////////
+  ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to off.
     digitalWrite(ledPin, LOW); 
     DefaultSmallStep();
