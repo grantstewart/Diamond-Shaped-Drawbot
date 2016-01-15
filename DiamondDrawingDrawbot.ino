@@ -65,50 +65,42 @@ void setup() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void loop() {
-  
-  
-  /*
+
+
   ////////////////////////////////////////////SENSOR INPUT for HC-SR04//////////////////////////////////////////////////////////////////////////////////////
   delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
   Serial.print("Ping: ");
   Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
   Serial.println("cm");
+  
+  
+  ///////////////////////Do these things when sensor is active or not///////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to off.
     digitalWrite(ledPin, LOW); 
-    LM.setSpeed(0);
-    RM.setSpeed(0);
+    DefaultSmallStep();
 
   }
   while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
     digitalWrite(ledPin, HIGH); 
-    LM.setSpeed(4);
-    RM.setSpeed(4);
+    LeftSideUpLineShapes();
+    RightSideUpLineShapes();
+    LeftSideDownLineShapes();
+    RightSideDownLineShapes();
   }
 
-  */
-  
-
-
-/////////////////////////////////////////////////////CHOOSE DRAWING STYLE BASED ON LINE LENGTH AND LINE GAP VARIABLES //////////////////////////////////////////////////////////////////////////////////////////
-  
-
-  
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
+  /*
    LeftSideUpLineShapes();
    RightSideUpLineShapes();
    LeftSideDownLineShapes();
    RightSideDownLineShapes();
-   
-   
-   DefaultSmallStep();
-   
-   
-  //verticalLinesDown();
- 
+   */
+  // DefaultSmallStep();
+  //verticalLinesDown(); 
   //testBoundaries();
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+
 
 
 
