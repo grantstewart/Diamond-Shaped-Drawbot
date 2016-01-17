@@ -1,4 +1,5 @@
 void RightSideUpLineShapes(){
+ 
   randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<percentChanceOfChoosingLargeLineLimit){
     lateralLineLimit = int(random(lateralLineLargeLimit));
@@ -18,6 +19,7 @@ void RightSideUpLineShapes(){
   int numLines = int(random(13));
 
   for(int i=0;i<numLines;i++){
+    
     testBoundaries();
     RM.step(zizzo, FORWARD, INTERLEAVE); 
     R-=zizzo;

@@ -1,4 +1,5 @@
 void LeftSideDownLineShapes(){
+  
 //////////////SETS UP THE STYLE OF DRAWING////////////
   randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<percentChanceOfChoosingLargeLineLimit){

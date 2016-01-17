@@ -6,9 +6,19 @@
 
 ///////////////////////////////////LED FADE SETUP///////////////////////////////
 int brightness = 0;    // how bright the LED is
-int fadeAmount = 5;    // how many points to fade the LED by
+int fadeAmount = 1;    // how many points to fade the LED by
 unsigned long currentTime;
 unsigned long loopTime;
+
+
+//////////////LED BLINK
+// Variables will change:
+int ledState = LOW;             // ledState used to set the LED
+long previousMillis = 0;        // will store last time LED was updated
+
+// the follow variables is a long because the time, measured in miliseconds,
+// will quickly become a bigger number than can be stored in an int.
+long interval = 500;           // interval at which to blink (milliseconds)
 ////////////////////////////////////////////////////
 
 
@@ -17,8 +27,8 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
-int drawingWidth = 80; // width of the drawing space in CM
-int motorSpeed = 3;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int drawingWidth = 90; // width of the drawing space in CM
+int motorSpeed = 1;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 /////// 1000 steps = 30cm wide diamond
 /////// 1cm = 33.3 steps
 /////// 
@@ -89,13 +99,16 @@ void loop() {
   
   
   ///////////////////////Do these things when sensor is active or not//////////////////////////
-  while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to off.
+  while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
+    LM.setSpeed(1); //initiate left motor speed
+    RM.setSpeed(1); //initiate right motor speed
     fadeLED();
     DefaultSmallStep();
 
   }
   while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
-    digitalWrite(2, HIGH);
+    LM.setSpeed(4); //initiate left motor speed
+    RM.setSpeed(4); //initiate right motor speed
     LeftSideUpLineShapes();
     RightSideUpLineShapes();
     LeftSideDownLineShapes();
@@ -109,10 +122,11 @@ void loop() {
    LeftSideDownLineShapes();
    RightSideDownLineShapes();
    */
+   
   // DefaultSmallStep();
   //verticalLinesDown(); 
   //testBoundaries();
-
+  //testBox();
 }
 
 
