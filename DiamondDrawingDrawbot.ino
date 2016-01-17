@@ -2,7 +2,7 @@
 #include <NewPing.h>
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
 #define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 int ledPin = 14;  //define the pin that the LED is on
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
@@ -32,12 +32,12 @@ int randoChoiceLimit;
 
 int lateralLineLargeLimit = 500;
 int lateralLineSmallLimit = 40;
-int percentChanceOfChoosingLargeLineLimit = 4;
+int percentChanceOfChoosingLargeLineLimit = 30;
 
 
 int lineGaplargeLimit = 100; 
 int lineGapSmallLimit = 3;
-int percentChangeOfChoosingGapLargeLimit = 10;
+int percentChangeOfChoosingGapLargeLimit = 50;
 
 //////////////////////VERTICAL LINES//////////////
 
@@ -57,7 +57,7 @@ void setup() {
   delay(2000);
   RM.step(1, BACKWARD, INTERLEAVE); //engage right motor
   LM.step(1, BACKWARD, INTERLEAVE); //engage left motor
-  pinMode(ledPin, OUTPUT);  
+    pinMode(ledPin, OUTPUT);  
   delay(2000);  //wait 4 seconds, then start the bot going
 }
 
