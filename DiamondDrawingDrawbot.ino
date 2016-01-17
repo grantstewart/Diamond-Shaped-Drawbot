@@ -18,7 +18,7 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
 int drawingWidth = 80; // width of the drawing space in CM
-int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int motorSpeed = 3;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 /////// 1000 steps = 30cm wide diamond
 /////// 1cm = 33.3 steps
 /////// 
@@ -90,12 +90,12 @@ void loop() {
   
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to off.
-
+    fadeLED();
     DefaultSmallStep();
 
   }
   while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
-    
+    digitalWrite(2, HIGH);
     LeftSideUpLineShapes();
     RightSideUpLineShapes();
     LeftSideDownLineShapes();
