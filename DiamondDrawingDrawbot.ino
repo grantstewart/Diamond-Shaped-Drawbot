@@ -4,7 +4,15 @@
 #define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
-int ledPin = 14;  //define the pin that the LED is on
+///////////////////////////////////LED FADE SETUP///////////////////////////////
+int brightness = 0;    // how bright the LED is
+int fadeAmount = 5;    // how many points to fade the LED by
+unsigned long currentTime;
+unsigned long loopTime;
+////////////////////////////////////////////////////
+
+
+//////////////////////////////DECLARE THE MOTION SENSOR////////////////////
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 
 
@@ -51,14 +59,20 @@ AF_Stepper LM(400, 2),RM(400,1);
 void setup() {
   Serial.begin(38400);
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
+  ///////////////////////////////////////////LED fading variables//////////////
+   // declare pin 2 to be an output:
+  pinMode(2, OUTPUT);
+  currentTime = millis();
+  loopTime = currentTime;
   delay(2000);
+  ///////////////////////////////////////MOTOR SETUP///////////////////////
   LM.setSpeed(motorSpeed); //initiate left motor speed
   RM.setSpeed(motorSpeed); //initiate right motor speed
   delay(2000);
+  ///////////////////////////////////////ENGAGE Motors//////////////////
   RM.step(1, BACKWARD, INTERLEAVE); //engage right motor
   LM.step(1, BACKWARD, INTERLEAVE); //engage left motor
-    pinMode(ledPin, OUTPUT);  
-  delay(2000);  //wait 4 seconds, then start the bot going
+  delay(4000);
 }
 
 
@@ -76,12 +90,12 @@ void loop() {
   
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to off.
-    digitalWrite(ledPin, LOW); 
+
     DefaultSmallStep();
 
   }
   while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
-    digitalWrite(ledPin, HIGH); 
+    
     LeftSideUpLineShapes();
     RightSideUpLineShapes();
     LeftSideDownLineShapes();
