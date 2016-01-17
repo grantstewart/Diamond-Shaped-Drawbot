@@ -18,7 +18,7 @@ void blinkLED(){
       ledState = LOW;
 
     // set the LED with the ledState of the variable:
-    digitalWrite(2, ledState);
+    digitalWrite(2, LOW);
   }
 }
 

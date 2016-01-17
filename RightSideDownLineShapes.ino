@@ -23,15 +23,19 @@ void RightSideDownLineShapes(){
     testBoundaries();
     RM.step(zizzo, BACKWARD, INTERLEAVE); 
     R+=zizzo;
+     digitalWrite(2, LOW);
     testBoundaries();
     LM.step(zizzo2,BACKWARD,INTERLEAVE);
     L-=zizzo2;
+     digitalWrite(2, HIGH);
     testBoundaries();
     RM.step(zizzo,BACKWARD, INTERLEAVE);
     R+=zizzo;
+     digitalWrite(2, LOW);
     testBoundaries();
     LM.step(zizzo2,FORWARD,INTERLEAVE);
     L+=zizzo2;
+     digitalWrite(2, HIGH);
     testBoundaries();
   }
 

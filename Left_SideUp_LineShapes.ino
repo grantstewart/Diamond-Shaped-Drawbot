@@ -23,19 +23,19 @@ void LeftSideUpLineShapes(){
     testBoundaries();
     LM.step(zizzo, BACKWARD, INTERLEAVE); 
     L-=zizzo;
-    
+     digitalWrite(2, LOW);
     testBoundaries();
     RM.step(zizzo2,BACKWARD,INTERLEAVE);
     R+=zizzo2;
-   
+    digitalWrite(2, HIGH);
     testBoundaries();
     LM.step(zizzo,BACKWARD, INTERLEAVE);
     L-=zizzo;
-   
+    digitalWrite(2, LOW);
     testBoundaries();
     RM.step(zizzo2,FORWARD,INTERLEAVE);
     R-=zizzo2;
-    
+     digitalWrite(2, HIGH);
     testBoundaries();
   }
 
