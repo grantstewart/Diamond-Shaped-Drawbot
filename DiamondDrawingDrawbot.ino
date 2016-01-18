@@ -2,7 +2,7 @@
 #include <NewPing.h>
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
 #define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+#define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 ///////////////////////////////////LED FADE SETUP///////////////////////////////
 int brightness = 0;    // how bright the LED is
