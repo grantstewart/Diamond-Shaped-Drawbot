@@ -12,7 +12,7 @@ unsigned long loopTime;
 
 //////////////LED BLINK
 // Variables will change:
-int ledState = LOW;             // ledState used to set the LED
+int ledState = HIGH;             // ledState used to set the LED
 long previousMillis = 0;        // will store last time LED was updated
 
 // the follow variables is a long because the time, measured in miliseconds,
@@ -118,6 +118,8 @@ void loop() {
     RightSideDownLineShapes();
     }
   }
+  
+  fadeLED();
 
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
   /*
