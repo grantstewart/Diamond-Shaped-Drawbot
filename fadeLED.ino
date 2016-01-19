@@ -5,11 +5,11 @@ void fadeLED(){
     analogWrite(2, brightness);    
     
     // change the brightness for next time through the loop:
-    brightness = brightness + fadeAmount*10;
+    brightness = brightness + fadeAmount/10;
 
     // reverse the direction of the fading at the ends of the fade:
     if (brightness == 0 || brightness == 255) {
-      fadeAmount = -fadeAmount/10; 
+      fadeAmount = -fadeAmount*10; 
     }     
     loopTime = currentTime;  // Updates loopTime
   } 

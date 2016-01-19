@@ -2,14 +2,13 @@
 #include <NewPing.h>
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
 #define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 ///////////////////////////////////LED FADE SETUP///////////////////////////////
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 1;    // how many points to fade the LED by
 unsigned long currentTime;
 unsigned long loopTime;
-
 
 //////////////LED BLINK
 // Variables will change:
@@ -92,26 +91,32 @@ void loop() {
 
   ////////////////////////////////////////////SENSOR INPUT for HC-SR04//////////////////////////////////////////////////////////////////////////////////////
   delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
-  Serial.print("Ping: ");
-  Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
-  Serial.println("cm");
+  //Serial.print("Ping: ");
+  //Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
+ // Serial.println("cm");
   
   
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
+  fadeLED();
     LM.setSpeed(1); //initiate left motor speed
     RM.setSpeed(1); //initiate right motor speed
-    fadeLED();
     DefaultSmallStep();
 
   }
   while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
-    LM.setSpeed(4); //initiate left motor speed
-    RM.setSpeed(4); //initiate right motor speed
+    LM.setSpeed(3); //initiate left motor speed
+    RM.setSpeed(3); //initiate right motor speed
+    int choice = int(random(4));
+    if (choice == 0){
     LeftSideUpLineShapes();
+    } else if (choice ==1){
     RightSideUpLineShapes();
+    } else if (choice ==2){
     LeftSideDownLineShapes();
+    } else {
     RightSideDownLineShapes();
+    }
   }
 
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
