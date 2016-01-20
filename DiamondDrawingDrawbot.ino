@@ -104,22 +104,26 @@ void loop() {
     DefaultSmallStep();
 
   }
-  while(sonar.ping_cm() >10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
+  while(sonar.ping_cm() >=10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
     LM.setSpeed(3); //initiate left motor speed
     RM.setSpeed(3); //initiate right motor speed
     int choice = int(random(4));
     if (choice == 0){
     LeftSideUpLineShapes();
+    fadeLED();
     } else if (choice ==1){
     RightSideUpLineShapes();
+    fadeLED();
     } else if (choice ==2){
     LeftSideDownLineShapes();
+    fadeLED();
     } else {
     RightSideDownLineShapes();
+    fadeLED();
     }
   }
   
-  fadeLED();
+  //fadeLED();
 
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
   /*
