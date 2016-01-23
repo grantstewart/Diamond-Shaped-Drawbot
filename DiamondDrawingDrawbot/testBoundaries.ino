@@ -17,6 +17,6 @@ void testBoundaries(){
    RM.step(1, FORWARD, INTERLEAVE);
    R-=1;
   }
-  fadeLED();
+  
   
 }

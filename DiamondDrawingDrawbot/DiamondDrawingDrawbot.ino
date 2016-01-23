@@ -66,12 +66,6 @@ int lineGapSmallLimit = 20;
 int percentChangeOfChoosingGapLargeLimit = 20;
 
 
-
-
-//////////////////////VERTICAL LINES//////////////
-
-int verticalSizeLineLimit = 400;
-
 // Stepper 200 steps per revolution (or change to 400 for interleave)
 AF_Stepper LM(400, 2),RM(400,1);
 
