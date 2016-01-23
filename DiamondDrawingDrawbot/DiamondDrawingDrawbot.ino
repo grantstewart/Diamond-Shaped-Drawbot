@@ -28,7 +28,7 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
 int drawingWidth = 190; // width of the drawing space in CM
-int motorSpeed = 14;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int motorSpeed = 5;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 
 
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
@@ -54,17 +54,16 @@ int lateralLineLimit; // this is the max length of the long lateral lines when g
 int lineGap; // max 'large gap' between dense lines
 int randoChoice;
 int lineGapChoice;
-
 int randoChoiceLimit;
 
-int lateralLineLargeLimit = 1000;
-int lateralLineSmallLimit = 130;
-int percentChanceOfChoosingLargeLineLimit = 1;
+int lateralLineLargeLimit = 700;
+int lateralLineSmallLimit = 100;
+int percentChanceOfChoosingLargeLineLimit = 20;
 
 
-int lineGaplargeLimit = 15; 
-int lineGapSmallLimit = 120;
-int percentChangeOfChoosingGapLargeLimit = 100;
+int lineGaplargeLimit = 150; 
+int lineGapSmallLimit = 20;
+int percentChangeOfChoosingGapLargeLimit = 20;
 
 
 
