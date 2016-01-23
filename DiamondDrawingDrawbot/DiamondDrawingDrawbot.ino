@@ -62,7 +62,7 @@ int percentChanceOfChoosingLargeLineLimit = 10;
 
 
 int lineGaplargeLimit = 150; 
-int lineGapSmallLimit = 13;
+int lineGapSmallLimit = 9;
 int percentChangeOfChoosingGapLargeLimit = 10;
 
 
