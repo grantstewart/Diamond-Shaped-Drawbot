@@ -1,35 +1,22 @@
 void RightSideDownLineShapes(){
 
-   //////////////SETS UP THE STYLE OF DRAWING////////////
+  //////////////SETS UP THE STYLE OF DRAWING////////////
   randoChoice = int(random(100));  // this defines how long the long back and forth lines are
-  if (randoChoice<percentChanceOfChoosingLargeLineLimit){
+  if (randoChoice<=percentChanceOfChoosingLargeLineLimit){
     lateralLineLimit = int(random(lateralLineLargeLimit));
   }
   else{
-    lateralLineLimit = random(lateralLineSmallLimit);
+    lateralLineLimit = int(random(lateralLineSmallLimit));
   }
-  lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
-  if (lineGapChoice<percentChangeOfChoosingGapLargeLimit){
+  if (lineGapChoice<=percentChangeOfChoosingGapLargeLimit){
     lineGap = int(random(lineGaplargeLimit));
+  }
+  else{
+    lineGap = int(random(lineGapSmallLimit));
+  }
 
-    //////////////SETS UP THE STYLE OF DRAWING////////////
-    randoChoice = int(random(100));  // this defines how long the long back and forth lines are
-    if (randoChoice<3){
-      lateralLineLimit = int(random(1000));
-    }
-    else{
-      lateralLineLimit = random(130);
-    }
-    lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
-    if (lineGapChoice<2){
-      lineGap = int(random(80));
-
-    } 
-    else {
-      lineGap = int(random(10));
-    }
-  int zizzo = int(random(lineGap)); //choose random 0 1 2 3 
-  int zizzo2 = int(random(lateralLineLimit)); //choose random 0 1 2 3 
+  int zizzo = lineGap; //choose random 0 1 2 3 
+  int zizzo2 = lateralLineLimit; //choose random 0 1 2 3 
   int numLines = int(random(13));
 
   for(int i=0;i<numLines;i++){
@@ -58,5 +45,5 @@ void RightSideDownLineShapes(){
   }
 
   }
-}
+
 
