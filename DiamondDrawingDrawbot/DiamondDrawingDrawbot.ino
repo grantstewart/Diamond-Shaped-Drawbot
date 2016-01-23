@@ -57,13 +57,13 @@ int lineGapChoice;
 
 int randoChoiceLimit;
 
-int lateralLineLargeLimit = 1700;
+int lateralLineLargeLimit = 1000;
 int lateralLineSmallLimit = 130;
 int percentChanceOfChoosingLargeLineLimit = 10;
 
 
 int lineGaplargeLimit = 150; 
-int lineGapSmallLimit = 50;
+int lineGapSmallLimit = 20;
 int percentChangeOfChoosingGapLargeLimit = 10;
 
 //////////////////////VERTICAL LINES//////////////
@@ -126,16 +126,16 @@ void loop() {
       ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
-    LM.setSpeed(2); //initiate left motor speed
-    RM.setSpeed(2); //initiate right motor speed
+    LM.setSpeed(1); //initiate left motor speed
+    RM.setSpeed(1); //initiate right motor speed
     DefaultSmallStep();
     fadeLED();
   }
  
   while(sonar.ping_cm() >=10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
     
-    LM.setSpeed(6); //initiate left motor speed
-     RM.setSpeed(6); //initiate right motor speed
+    LM.setSpeed(4); //initiate left motor speed
+     RM.setSpeed(4); //initiate right motor speed
      
      int choice = int(random(4));
      if (choice == 0){

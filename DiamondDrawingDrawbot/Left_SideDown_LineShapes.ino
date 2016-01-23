@@ -18,7 +18,7 @@ void LeftSideDownLineShapes(){
       lateralLineLimit = int(random(1000));
     }
     else{
-      lateralLineLimit = random(100);
+      lateralLineLimit = random(130);
     }
     lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
     if (lineGapChoice<2){

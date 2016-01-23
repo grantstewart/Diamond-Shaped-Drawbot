@@ -15,10 +15,10 @@ void RightSideDownLineShapes(){
     //////////////SETS UP THE STYLE OF DRAWING////////////
     randoChoice = int(random(100));  // this defines how long the long back and forth lines are
     if (randoChoice<3){
-      lateralLineLimit = int(random(500));
+      lateralLineLimit = int(random(1000));
     }
     else{
-      lateralLineLimit = random(30);
+      lateralLineLimit = random(130);
     }
     lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
     if (lineGapChoice<2){
