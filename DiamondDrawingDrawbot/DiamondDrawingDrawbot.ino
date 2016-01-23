@@ -57,13 +57,13 @@ int lineGapChoice;
 int randoChoiceLimit;
 
 int lateralLineLargeLimit = 700;
-int lateralLineSmallLimit = 100;
-int percentChanceOfChoosingLargeLineLimit = 20;
+int lateralLineSmallLimit = 30;
+int percentChanceOfChoosingLargeLineLimit = 10;
 
 
 int lineGaplargeLimit = 150; 
-int lineGapSmallLimit = 20;
-int percentChangeOfChoosingGapLargeLimit = 20;
+int lineGapSmallLimit = 13;
+int percentChangeOfChoosingGapLargeLimit = 10;
 
 
 // Stepper 200 steps per revolution (or change to 400 for interleave)
