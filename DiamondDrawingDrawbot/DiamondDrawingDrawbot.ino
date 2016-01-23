@@ -122,8 +122,8 @@ void loop() {
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
-    LM.setSpeed(1); //initiate left motor speed
-    RM.setSpeed(1); //initiate right motor speed
+    LM.setSpeed(3); //initiate left motor speed
+    RM.setSpeed(3); //initiate right motor speed
     DefaultSmallStep();
     fadeLED();
   }
