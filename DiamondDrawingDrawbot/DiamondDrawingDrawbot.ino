@@ -57,14 +57,14 @@ int lineGapChoice;
 
 int randoChoiceLimit;
 
-int lateralLineLargeLimit = 500;
-int lateralLineSmallLimit = 30;
-int percentChanceOfChoosingLargeLineLimit = 4;
+int lateralLineLargeLimit = 1700;
+int lateralLineSmallLimit = 130;
+int percentChanceOfChoosingLargeLineLimit = 10;
 
 
-int lineGaplargeLimit = 50; 
-int lineGapSmallLimit = 10;
-int percentChangeOfChoosingGapLargeLimit = 2;
+int lineGaplargeLimit = 150; 
+int lineGapSmallLimit = 50;
+int percentChangeOfChoosingGapLargeLimit = 10;
 
 //////////////////////VERTICAL LINES//////////////
 
