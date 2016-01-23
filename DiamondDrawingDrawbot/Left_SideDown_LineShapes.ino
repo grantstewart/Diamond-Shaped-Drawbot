@@ -1,6 +1,7 @@
 void LeftSideDownLineShapes(){
 
   //////////////SETS UP THE STYLE OF DRAWING////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////LONG BACK AND FORTH LINES
   randoChoice = int(random(100));  // this defines how long the long back and forth lines are
   if (randoChoice<=percentChanceOfChoosingLargeLineLimit){
     lateralLineLimit = int(random(lateralLineLargeLimit));
@@ -8,6 +9,9 @@ void LeftSideDownLineShapes(){
   else{
     lateralLineLimit = int(random(lateralLineSmallLimit));
   }
+  
+  ///////////////////////////////////////////////////////////////////////GAP BETWEEN LONG LINES
+  lineGapChoice = int(random(100));
   if (lineGapChoice<=percentChangeOfChoosingGapLargeLimit){
     lineGap = int(random(lineGaplargeLimit));
   }

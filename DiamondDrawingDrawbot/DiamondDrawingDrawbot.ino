@@ -59,12 +59,15 @@ int randoChoiceLimit;
 
 int lateralLineLargeLimit = 1000;
 int lateralLineSmallLimit = 130;
-int percentChanceOfChoosingLargeLineLimit = 10;
+int percentChanceOfChoosingLargeLineLimit = 100;
 
 
 int lineGaplargeLimit = 150; 
-int lineGapSmallLimit = 20;
-int percentChangeOfChoosingGapLargeLimit = 10;
+int lineGapSmallLimit = 120;
+int percentChangeOfChoosingGapLargeLimit = 100;
+
+
+
 
 //////////////////////VERTICAL LINES//////////////
 
@@ -151,7 +154,7 @@ void loop() {
      RightSideDownLineShapes();
     
      }
-     fadeLED();
+    // fadeLED();
   }
      
      
