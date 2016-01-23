@@ -28,7 +28,7 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
 int drawingWidth = 190; // width of the drawing space in CM
-int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int motorSpeed = 14;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 
 
 #define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
@@ -59,10 +59,10 @@ int randoChoiceLimit;
 
 int lateralLineLargeLimit = 1000;
 int lateralLineSmallLimit = 130;
-int percentChanceOfChoosingLargeLineLimit = 100;
+int percentChanceOfChoosingLargeLineLimit = 1;
 
 
-int lineGaplargeLimit = 150; 
+int lineGaplargeLimit = 15; 
 int lineGapSmallLimit = 120;
 int percentChangeOfChoosingGapLargeLimit = 100;
 
@@ -119,14 +119,14 @@ void setup() {
 void loop() {
 
 
-   
+
   ////////////////////////////////////////////SENSOR INPUT for HC-SR04//////////////////////////////////////////////////////////////////////////////////////
   delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
   //Serial.print("Ping: ");
   //Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
   // Serial.println("cm");
 
-      ///////////////////////Do these things when sensor is active or not//////////////////////////
+  ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
     LM.setSpeed(1); //initiate left motor speed
@@ -134,43 +134,46 @@ void loop() {
     DefaultSmallStep();
     fadeLED();
   }
- 
+
   while(sonar.ping_cm() >=10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
-    
-    LM.setSpeed(4); //initiate left motor speed
-     RM.setSpeed(4); //initiate right motor speed
-     
-     int choice = int(random(4));
-     if (choice == 0){
-     LeftSideUpLineShapes();
-     
-     } else if (choice ==1){
-     RightSideUpLineShapes();
-     
-     } else if (choice ==2){
-     LeftSideDownLineShapes();
-     
-     } else {
-     RightSideDownLineShapes();
-    
-     }
+
+    LM.setSpeed(motorSpeed); //initiate left motor speed
+    RM.setSpeed(motorSpeed); //initiate right motor speed
+
+      int choice = int(random(4));
+    if (choice == 0){
+      LeftSideUpLineShapes();
+
+    } 
+    else if (choice ==1){
+      RightSideUpLineShapes();
+
+    } 
+    else if (choice ==2){
+      LeftSideDownLineShapes();
+
+    } 
+    else {
+      RightSideDownLineShapes();
+
+    }
     // fadeLED();
   }
-     
-     
 
-  
-  
-/*
+
+
+
+
+  /*
  LM.setSpeed(6); //initiate left motor speed
-     RM.setSpeed(6); //initiate right motor speed
-    LeftSideUpLineShapes();
-    RightSideUpLineShapes();
-    LeftSideDownLineShapes();
-    RightSideDownLineShapes();
-
-  }
-*/
+   RM.setSpeed(6); //initiate right motor speed
+   LeftSideUpLineShapes();
+   RightSideUpLineShapes();
+   LeftSideDownLineShapes();
+   RightSideDownLineShapes();
+   
+   }
+   */
   //fadeLED();
 
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
@@ -228,6 +231,7 @@ void loop() {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //testBox();
 }
+
 
 
 
