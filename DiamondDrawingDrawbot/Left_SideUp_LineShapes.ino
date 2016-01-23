@@ -21,11 +21,11 @@ void LeftSideUpLineShapes(){
     }
     lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
     if (lineGapChoice<2){
-      lineGap = int(random(50));
+      lineGap = int(random(80));
 
     } 
     else {
-      lineGap = int(random(50));
+      lineGap = int(random(10));
     }
     int zizzo = int(random(lineGap)); //choose random 0 1 2 3 
     int zizzo2 = int(random(lateralLineLimit)); //choose random 0 1 2 3 

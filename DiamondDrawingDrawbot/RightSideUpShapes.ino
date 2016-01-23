@@ -22,7 +22,7 @@ void RightSideUpLineShapes(){
     }
     lineGapChoice = int(random(100));  // this defines the amound of gap separating the long back and forth lines
     if (lineGapChoice<2){
-      lineGap = int(random(50));
+      lineGap = int(random(80));
 
     } 
     else {
