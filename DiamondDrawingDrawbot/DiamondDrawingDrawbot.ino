@@ -5,7 +5,8 @@
 #define ECHO_PIN     A4  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
-int defaultSmallStepSize = 4;  //amount to step when in default mode - 
+int defaultSmallStepSize = 2;  //amount to step when in default mode - 
+int defaultSmallStepSpeed = 5; //speed of the cloud default drawing style
 int led = 2; 
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
@@ -29,8 +30,8 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
-int drawingWidth = 230; // width of the drawing space in CM
-int motorSpeed = 5;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
+int drawingWidth = 230; // width of the drawing space in some random unit - need to change the lower limit multiplier to get it accurate in terms of CM
+int motorSpeed = 4;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 
 int ledPin = 2;  //define the pin that the LED is on
 
@@ -53,14 +54,14 @@ int randoChoice;
 int lineGapChoice;
 int randoChoiceLimit;
 
-int lateralLineLargeLimit = 700;
+int lateralLineLargeLimit = 500;
 int lateralLineSmallLimit = 30;
-int percentChanceOfChoosingLargeLineLimit = 10;
+int percentChanceOfChoosingLargeLineLimit = 7;
 
 
-int lineGaplargeLimit = 150; 
-int lineGapSmallLimit = 9;
-int percentChangeOfChoosingGapLargeLimit = 10;
+int lineGaplargeLimit = 100; 
+int lineGapSmallLimit = 5;
+int percentChangeOfChoosingGapLargeLimit = 2;
 
 
 // Stepper 200 steps per revolution (or change to 400 for interleave)
@@ -104,8 +105,8 @@ void loop() {
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
-    LM.setSpeed(2); //initiate left motor speed
-    RM.setSpeed(2); //initiate right motor speed
+    LM.setSpeed(defaultSmallStepSpeed); //initiate left motor speed
+    RM.setSpeed(defaultSmallStepSpeed); //initiate right motor speed
     DefaultSmallStep();
     
     
