@@ -5,9 +5,7 @@
 #define ECHO_PIN     A4  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
-int defaultSmallStepSize = 4;
-
-
+int defaultSmallStepSize = 4;  //amount to step when in default mode - 
 int led = 2; 
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
@@ -75,7 +73,7 @@ void setup() {
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
   ///////////////////////////////////////////LED fading variables//////////////
   // declare pin 2 to be an output:
-  pinMode(2, OUTPUT);
+  //pinMode(2, OUTPUT);
   currentTime = millis();
   loopTime = currentTime;
   delay(2000);
@@ -89,7 +87,7 @@ void setup() {
   delay(4000);
 
   // Stepper 200 steps per revolution (or change to 400 for interleave)
-  AF_Stepper LM(400, 2),RM(400,1);
+  //AF_Stepper LM(400, 2),RM(400,1);
 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +96,7 @@ void loop() {
 
 
   ////////////////////////////////////////////SENSOR INPUT for HC-SR04//////////////////////////////////////////////////////////////////////////////////////
-  delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
+  //delay(50);                     // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
   //Serial.print("Ping: ");
   //Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
   // Serial.println("cm");
@@ -106,11 +104,11 @@ void loop() {
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
-    LM.setSpeed(3); //initiate left motor speed
-    RM.setSpeed(3); //initiate right motor speed
+    LM.setSpeed(2); //initiate left motor speed
+    RM.setSpeed(2); //initiate right motor speed
     DefaultSmallStep();
-    //fadeLED();
-    //blinkLED();
+    
+    
   }
 
   while(sonar.ping_cm() >=10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
