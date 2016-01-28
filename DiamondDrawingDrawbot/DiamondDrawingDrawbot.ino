@@ -5,9 +5,10 @@
 #define ECHO_PIN     A4  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
-///////////////////////////////////LED FADE SETUP///////////////////////////////
+int led = 2; 
 int brightness = 0;    // how bright the LED is
-int fadeAmount = 1;    // how many points to fade the LED by
+int fadeAmount = 5;    // how many points to fade the LED by
+
 unsigned long currentTime;
 unsigned long loopTime;
 
@@ -27,15 +28,10 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 
 /////////////////////////////////////////////////////////////////////////////DRAWING SPACE SETUP//////////////////////////////////////////////////////////
-int drawingWidth = 250; // width of the drawing space in CM
+int drawingWidth = 230; // width of the drawing space in CM
 int motorSpeed = 5;  //the speed of the motors  (6-7 is about the max speed with a weight  - 2-3 max without weight)
 
-
-#define TRIGGER_PIN  A4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     A5  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 300 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
-
-int ledPin = 14;  //define the pin that the LED is on
+int ledPin = 2;  //define the pin that the LED is on
 
 /////// 1000 steps = 30cm wide diamond
 /////// 1cm = 33.3 steps
@@ -72,6 +68,7 @@ AF_Stepper LM(400, 2),RM(400,1);
 ////////////////////////////////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(38400);
+  pinMode(led, OUTPUT);
   randomSeed(analogRead(0));// set up Serial library at 9600 bps
   ///////////////////////////////////////////LED fading variables//////////////
   // declare pin 2 to be an output:
@@ -102,7 +99,7 @@ void loop() {
   //Serial.print("Ping: ");
   //Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
   // Serial.println("cm");
-/*
+
   ///////////////////////Do these things when sensor is active or not//////////////////////////
   while(sonar.ping_cm() <10){  //while the sensor is reading 'not much' set the motor speed to 0 and the LED to fade
     fadeLED();
@@ -110,6 +107,7 @@ void loop() {
     RM.setSpeed(3); //initiate right motor speed
     DefaultSmallStep();
     //fadeLED();
+    //blinkLED();
   }
 
   while(sonar.ping_cm() >=10){ //while the sensor is reading HIGH, set motors moving and turn on the LED
@@ -136,8 +134,11 @@ void loop() {
     }
     //fadeLED();
   }
+  
+  
+  //fadeLED();
 
-*/
+
 
   ////////////////////////////////////////////////////////////MOVE THE BOT WHILE TESTING BOUNDARIES////////////////////////////////////////////////////////////////////////////////// 
   /*
@@ -150,7 +151,7 @@ void loop() {
   // DefaultSmallStep();
   //verticalLinesDown(); 
   //testBoundaries();
-  testBox();
+  //testBox();
 }
 
 
